@@ -1,16 +1,16 @@
 package com.example.nitstudenthubsb.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
 public class Group {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
     private String name;
     @ManyToOne
+    @JoinColumn(name = "creator_id")
     private User creator;
 }
