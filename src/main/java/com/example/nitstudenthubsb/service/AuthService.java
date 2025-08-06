@@ -35,8 +35,8 @@ public class AuthService {
             throw new RuntimeException("User with this roll number already exists");
         }
 
-        if (userRepository.existsByUsername(request.getUsername())) {
-            throw new IllegalArgumentException("Username already taken");
+        if(userRepository.existsByUsername(request.getUsername())){
+            throw new RuntimeException("User with this username already exists");
         }
 
         // Create new user
